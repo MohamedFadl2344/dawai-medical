@@ -109,4 +109,3 @@ dawai-medical/
 ## Documentation
 For detailed documentation about specific components and features, please refer to:
 - [Bootstrap 5 Docs](https://getbootstrap.com/docs/5.0/)
-- Project Wiki (Internal)
