@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي للطبيب - دوائي</title>
+    <!-- Bootstrap 5 RTL CSS -->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Cairo Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/settings.css">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div id="doctorProfileCard" class="bg-white rounded-3 shadow-sm">
+                    <div id="profileHeader" class="p-4 border-bottom">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h3 class="mb-0">الملف الشخصي</h3>
+                            <div>
+                                <a href="settings.html" class="btn btn-outline-secondary">
+                                    <i class="fas fa-cog"></i>
+                                    الإعدادات
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4">
+                        <!-- المعلومات الشخصية -->
+                        <div id="personalInfoSection" class="mb-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="section-icon me-3">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <h5 class="mb-0">المعلومات الشخصية</h5>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName" class="form-label">الاسم الأول</label>
+                                        <input type="text" id="firstName" class="form-control" value="أحمد">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastName" class="form-label">الاسم الأخير</label>
+                                        <input type="text" id="lastName" class="form-control" value="محمد">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">البريد الإلكتروني</label>
+                                        <input type="email" id="email" class="form-control" value="doctor@example.com">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">رقم الهاتف</label>
+                                        <input type="tel" id="phone" class="form-control" value="+20 123 456 7890">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="specialtySection" class="mb-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="section-icon me-3">
+                                    <i class="fas fa-stethoscope"></i>
+                                </div>
+                                <h5 class="mb-0">التخصص والخبرة</h5>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="specialty" class="form-label">التخصص</label>
+                                        <select id="specialty" class="form-select">
+                                            <option value="family">طب الأسرة</option>
+                                            <option value="internal">الباطنة</option>
+                                            <option value="pediatrics">طب الأطفال</option>
+                                            <option value="cardiology">القلب</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="experience" class="form-label">سنوات الخبرة</label>
+                                        <div class="input-group">
+                                            <input type="number" id="experience" class="form-control" value="10">
+                                            <span class="input-group-text">سنوات</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="settingsSection">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="section-icon me-3">
+                                    <i class="fas fa-sliders-h"></i>
+                                </div>
+                                <h5 class="mb-0">الإعدادات</h5>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="setting-card">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="allowBooking" checked>
+                                            <label class="form-check-label" for="allowBooking">
+                                                السماح بالحجز المباشر
+                                            </label>
+                                        </div>
+                                        <small class="text-muted d-block mt-2">
+                                            يمكن للمرضى حجز موعد معك مباشرة عبر المنصة
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="setting-card">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="showRatings" checked>
+                                            <label class="form-check-label" for="showRatings">
+                                                عرض التقييمات
+                                            </label>
+                                        </div>
+                                        <small class="text-muted d-block mt-2">
+                                            عرض تقييمات المرضى على صفحتك الشخصية
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="controlButtons" class="p-4 bg-light border-top">
+                        <div class="d-flex justify-content-end gap-3">
+                            <button type="button" class="btn btn-light" id="cancelBtn">
+                                إلغاء
+                            </button>
+                            <button type="button" class="btn btn-primary" id="saveBtn">
+                                <i class="fas fa-save me-2"></i>
+                                حفظ التغييرات
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

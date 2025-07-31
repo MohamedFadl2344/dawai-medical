@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المرضى | لوحة التحكم</title>
+    <!-- Bootstrap RTL CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"> -->
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <button class="sidebar-close d-lg-none">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="الشعار" class="logo">
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>الرئيسية</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="appointments.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>المواعيد</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doctors.html" class="nav-link">
+                        <i class="fas fa-user-md"></i>
+                        <span>الأطباء</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="patients.html" class="nav-link active">
+                        <i class="fas fa-users"></i>
+                        <span>المرضى</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="specialties.html" class="nav-link">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>التخصصات</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <nav class="top-navbar">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center">
+                        <button id="sidebarToggle" class="d-lg-none">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown notification-dropdown me-3">
+                            <button class="btn dropdown-toggle position-relative" type="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-bell"></i>
+                                <span class="notification-badge">3</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <h6 class="dropdown-header">الإشعارات</h6>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-calendar-check text-success"></i>
+                                    <div>
+                                        <p>موعد جديد مع د. أحمد</p>
+                                        <small class="text-muted">منذ 5 دقائق</small>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-center" href="#">عرض كل الإشعارات</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn user-dropdown" type="button" data-bs-toggle="dropdown">
+                                <img src="assets/images/avatar.png" alt="User" class="rounded-circle">
+                                <span class="d-none d-md-inline">أحمد محمد</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="profile.html">
+                                    <i class="fas fa-user"></i>
+                                    <span>الملف الشخصي</span>
+                                </a>
+                                <a class="dropdown-item" href="settings.html">
+                                    <i class="fas fa-cog"></i>
+                                    <span>الإعدادات</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="../index.html">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>تسجيل الخروج</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Patients Content -->
+            <div class="container-fluid" id="patients-content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h1 class="h3 mb-0">إدارة المرضى</h1>
+                            <button class="btn btn-primary" id="add-patient-btn">
+                                <i class="fas fa-plus"></i>
+                                إضافة مريض جديد
+                            </button>
+                        </div>
+
+                        <!-- Patients Search and Filters -->
+                        <div class="card mb-4" id="patients-filters">
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-4 col-sm-6">
+                                        <label class="form-label">بحث</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="patient-search" placeholder="اسم المريض...">
+                                            <button class="btn btn-outline-secondary" type="button" id="search-btn">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <label class="form-label">الحالة</label>
+                                        <select class="form-select" id="status-filter">
+                                            <option value="">الكل</option>
+                                            <option>نشط</option>
+                                            <option>غير نشط</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <label class="form-label">تاريخ التسجيل</label>
+                                        <input type="date" class="form-control" id="registration-date">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Patients Table -->
+                        <div class="card" id="patients-table-card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="patients-table">
+                                        <thead>
+                                            <tr>
+                                                <th>الاسم</th>
+                                                <th>رقم الهاتف</th>
+                                                <th>البريد الإلكتروني</th>
+                                                <th>العمر</th>
+                                                <th>تاريخ التسجيل</th>
+                                                <th>عدد المواعيد</th>
+                                                <th>الإجراءات</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>محمد أحمد</td>
+                                                <td>0123456789</td>
+                                                <td>patient@example.com</td>
+                                                <td>35</td>
+                                                <td>2024-01-01</td>
+                                                <td>3</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary view-patient-btn" data-bs-toggle="modal" data-bs-target="#viewPatientModal">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-info edit-patient-btn">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-danger delete-patient-btn" data-bs-toggle="modal" data-bs-target="#deletePatientModal">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Pagination -->
+                                <nav aria-label="Page navigation" class="mt-4" id="patients-pagination">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">السابق</a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">التالي</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Patient Modal -->
+            <div class="modal fade" id="viewPatientModal" tabindex="-1" aria-labelledby="viewPatientModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="viewPatientModalLabel">معلومات المريض</h5>
+                            <button type="button" class="btn-close ms-0 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="patient-detail">
+                                        <label class="fw-bold">الاسم:</label>
+                                        <p id="patient-name">محمد أحمد</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="patient-detail">
+                                        <label class="fw-bold">رقم الهاتف:</label>
+                                        <p id="patient-phone">0123456789</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="patient-detail">
+                                        <label class="fw-bold">البريد الإلكتروني:</label>
+                                        <p id="patient-email">patient@example.com</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="patient-detail">
+                                        <label class="fw-bold">العمر:</label>
+                                        <p id="patient-age">35</p>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="patient-detail">
+                                        <label class="fw-bold">العنوان:</label>
+                                        <p id="patient-address">القاهرة، مصر</p>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h6 class="mb-3">المواعيد السابقة</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm" id="patient-appointments">
+                                            <thead>
+                                                <tr>
+                                                    <th>التاريخ</th>
+                                                    <th>الطبيب</th>
+                                                    <th>التخصص</th>
+                                                    <th>الحالة</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2024-01-01</td>
+                                                    <td>د. أحمد محمد</td>
+                                                    <td>أسنان</td>
+                                                    <td><span class="badge bg-success">مكتمل</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                            <button type="button" class="btn btn-primary" id="edit-patient-details">تعديل البيانات</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Patient Modal -->
+            <div class="modal fade" id="deletePatientModal" tabindex="-1" aria-labelledby="deletePatientModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deletePatientModalLabel">تأكيد حذف المريض</h5>
+                            <button type="button" class="btn-close ms-0 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>هل أنت متأكد من حذف هذا المريض؟</p>
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                سيتم حذف جميع البيانات المتعلقة بهذا المريض بما في ذلك المواعيد والسجلات الطبية.
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                            <button type="button" class="btn btn-danger" id="confirm-delete-patient">تأكيد الحذف</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

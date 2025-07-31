@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأطباء | لوحة التحكم</title>
+    <!-- Bootstrap RTL CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"> -->
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <button class="sidebar-close d-lg-none">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="الشعار" class="logo">
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>الرئيسية</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="appointments.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>المواعيد</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doctors.html" class="nav-link active">
+                        <i class="fas fa-user-md"></i>
+                        <span>الأطباء</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="patients.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>المرضى</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="specialties.html" class="nav-link">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>التخصصات</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <nav class="top-navbar">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center">
+                        <button id="sidebarToggle" class="d-lg-none">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown notification-dropdown me-3">
+                            <button class="btn dropdown-toggle position-relative" type="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-bell"></i>
+                                <span class="notification-badge">3</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <h6 class="dropdown-header">الإشعارات</h6>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-calendar-check text-success"></i>
+                                    <div>
+                                        <p>موعد جديد مع د. أحمد</p>
+                                        <small class="text-muted">منذ 5 دقائق</small>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-center" href="#">عرض كل الإشعارات</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn user-dropdown" type="button" data-bs-toggle="dropdown">
+                                <img src="assets/images/avatar.png" alt="User" class="rounded-circle">
+                                <span class="d-none d-md-inline">أحمد محمد</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="profile.html">
+                                    <i class="fas fa-user"></i>
+                                    <span>الملف الشخصي</span>
+                                </a>
+                                <a class="dropdown-item" href="settings.html">
+                                    <i class="fas fa-cog"></i>
+                                    <span>الإعدادات</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="../index.html">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>تسجيل الخروج</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Doctors Content -->
+            <div class="container-fluid" id="doctors-content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h1 class="h3 mb-0">إدارة الأطباء</h1>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i>
+                                إضافة طبيب جديد
+                            </button>
+                        </div>
+
+                        <!-- Doctors Grid -->
+                        <div class="row g-4" id="doctors-grid">
+                            <!-- Doctor Card -->
+                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <img src="assets/images/doctor-avatar.png" alt="Doctor" class="rounded-circle me-3" width="60">
+                                            <div>
+                                                <h5 class="card-title mb-1">د. أحمد محمد</h5>
+                                                <p class="text-muted mb-0">أخصائي أسنان</p>
+                                            </div>
+                                        </div>
+                                        <div class="doctor-info">
+                                            <p><i class="fas fa-phone me-2"></i><span>0123456789</span></p>
+                                            <p><i class="fas fa-envelope me-2"></i><span>doctor@example.com</span></p>
+                                            <p><i class="fas fa-calendar-check me-2"></i><span>20 موعد هذا الشهر</span></p>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <button class="btn btn-outline-primary btn-sm">
+                                                <i class="fas fa-edit me-1"></i>
+                                                تعديل
+                                            </button>
+                                            <button class="btn btn-outline-danger btn-sm">
+                                                <i class="fas fa-trash me-1"></i>
+                                                حذف
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Another Doctor Card -->
+                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <img src="assets/images/doctor-avatar.png" alt="Doctor" class="rounded-circle me-3" width="60">
+                                            <div>
+                                                <h5 class="card-title mb-1">د. محمد أحمد</h5>
+                                                <p class="text-muted mb-0">أخصائي قلب</p>
+                                            </div>
+                                        </div>
+                                        <div class="doctor-info">
+                                            <p><i class="fas fa-phone me-2"></i><span>0123456789</span></p>
+                                            <p><i class="fas fa-envelope me-2"></i><span>doctor2@example.com</span></p>
+                                            <p><i class="fas fa-calendar-check me-2"></i><span>15 موعد هذا الشهر</span></p>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <button class="btn btn-outline-primary btn-sm">
+                                                <i class="fas fa-edit me-1"></i>
+                                                تعديل
+                                            </button>
+                                            <button class="btn btn-outline-danger btn-sm">
+                                                <i class="fas fa-trash me-1"></i>
+                                                حذف
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

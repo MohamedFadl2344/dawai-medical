@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - دوائي</title>
+    <!-- Bootstrap 5 RTL CSS -->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.rtl.min.css">
+    <!-- Custom CSS -->
+     <link rel="stylesheet" href="./assets/css/login.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Cairo Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <a href="index.html" class="brand-logo">دوائي</a>
+                <p class="mt-2 mb-0">مرحباً بعودتك</p>
+            </div>
+            <div class="card-body p-4">
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">كلمة المرور</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember">
+                        <label class="form-check-label" for="remember">تذكرني</label>
+                        <a href="#" class="forgot-password float-start">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="btn btn-login w-100">تسجيل الدخول</button>
+                </form>
+
+                <div class="social-login text-center">
+                    <p class="text-muted">أو سجل الدخول باستخدام</p>
+                    <div>
+                        <a href="#" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-btn google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <p class="mb-0">ليس لديك حساب؟ <a href="signup.html" class="forgot-password">إنشاء حساب</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

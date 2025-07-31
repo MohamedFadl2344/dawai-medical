@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - دوائي</title>
+    <!-- Bootstrap 5 RTL CSS -->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Cairo Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/settings.css">
+
+</head>
+<body>
+    <!-- Settings Content -->
+    <div id="settingsPage" class="settings-page mt-5">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div id="settingsSidebar" class="col-lg-3 mb-4">
+                    <div id="userTypeSwitch" class="user-type-switch">
+                        <select class="form-select" id="userTypeSwitch">
+                            <option value="patient">مريض</option>
+                            <option value="doctor">طبيب</option>
+                        </select>
+                    </div>
+                    <div id="settingsNav" class="settings-nav">
+                        <div class="nav flex-column nav-pills">
+                            <div id="patientSettings">
+                                <a class="nav-link active" data-bs-toggle="pill" href="#account">
+                                    <i class="fas fa-user text-primary"></i>
+                                    الحساب
+                                </a>
+                                <a class="nav-link" data-bs-toggle="pill" href="#privacy">
+                                    <i class="fas fa-shield-alt text-success"></i>
+                                    الخصوصية
+                                </a>
+                                <a class="nav-link" data-bs-toggle="pill" href="#notifications">
+                                    <i class="fas fa-bell text-warning"></i>
+                                    الإشعارات
+                                </a>
+                            </div>
+                            
+                            <div id="doctorSettings" style="display: none;">
+                                <a class="nav-link" data-bs-toggle="pill" href="#clinic">
+                                    <i class="fas fa-clinic-medical text-info"></i>
+                                    العيادة
+                                </a>
+                                <a class="nav-link" data-bs-toggle="pill" href="#schedule">
+                                    <i class="fas fa-calendar-alt text-primary"></i>
+                                    المواعيد
+                                </a>
+                                <a class="nav-link" data-bs-toggle="pill" href="#services">
+                                    <i class="fas fa-hand-holding-medical text-success"></i>
+                                    الخدمات
+                                </a>
+                            </div>
+                            
+                            <div id="commonSettings">
+                                <a class="nav-link" data-bs-toggle="pill" href="#security">
+                                    <i class="fas fa-lock text-danger"></i>
+                                    الأمان
+                                </a>
+                                <a class="nav-link" data-bs-toggle="pill" href="#preferences">
+                                    <i class="fas fa-sliders-h text-info"></i>
+                                    التفضيلات
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div id="settingsContent" class="col-lg-9">
+                    <div class="tab-content">
+                        <!-- Account Settings -->
+                        <div class="tab-pane fade show active" id="account">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-0">
+                                    <h4 class="mb-0">إعدادات الحساب</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row g-4">
+                                            <div class="col-md-6">
+                                                <label class="form-label">البريد الإلكتروني</label>
+                                                <input type="email" class="form-control" value="example@mail.com">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">رقم الهاتف</label>
+                                                <input type="tel" class="form-control" value="01234567890">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">اللغة المفضلة</label>
+                                                <select class="form-select">
+                                                    <option value="ar">العربية</option>
+                                                    <option value="en">English</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fas fa-save me-2"></i>
+                                                    حفظ التغييرات
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Settings -->
+                        <div class="tab-pane fade" id="privacy">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-0">
+                                    <h4 class="mb-0">إعدادات الخصوصية</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="mb-4">
+                                            <h5 class="mb-3">عرض الملف الشخصي</h5>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="profileVisibility" id="public">
+                                                <label class="form-check-label" for="public">عام</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="profileVisibility" id="private" checked>
+                                                <label class="form-check-label" for="private">خاص</label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <h5 class="mb-3">السماح بـ</h5>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="allowMessages" checked>
+                                                <label class="form-check-label" for="allowMessages">
+                                                    استقبال رسائل من الأطباء
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="allowNotifications" checked>
+                                                <label class="form-check-label" for="allowNotifications">
+                                                    تلقي إشعارات عن العروض والتحديثات
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-save me-2"></i>
+                                            حفظ التغييرات
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Clinic Settings (Doctor) -->
+                        <div class="tab-pane fade" id="clinic">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-0">
+                                    <h4 class="mb-0">إعدادات العيادة</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row g-4">
+                                            <div class="col-12">
+                                                <label class="form-label">اسم العيادة</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">العنوان</label>
+                                                <textarea class="form-control" rows="3"></textarea>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">رقم الهاتف</label>
+                                                <input type="tel" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">البريد الإلكتروني</label>
+                                                <input type="email" class="form-control">
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fas fa-save me-2"></i>
+                                                    حفظ التغييرات
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Settings (Doctor) -->
+                        <div class="tab-pane fade" id="schedule">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-0">
+                                    <h4 class="mb-0">إعدادات المواعيد</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row g-4">
+                                            <div class="col-md-6">
+                                                <h5 class="mb-3">أيام العمل</h5>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="workSunday">
+                                                    <label class="form-check-label" for="workSunday">الأحد</label>
+                                                </div>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="workMonday">
+                                                    <label class="form-check-label" for="workMonday">الإثنين</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5 class="mb-3">ساعات العمل</h5>
+                                                <div class="mb-3">
+                                                    <label class="form-label">من</label>
+                                                    <input type="time" class="form-control">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">إلى</label>
+                                                    <input type="time" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fas fa-save me-2"></i>
+                                                    حفظ التغييرات
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Settings -->
+                        <div class="tab-pane fade" id="security">
+                            <div class="settings-card">
+                                <div class="card-header bg-transparent border-0">
+                                    <h4 class="mb-0">إعدادات الأمان</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form id="securityForm" class="settings-form">
+                                        <div class="row g-4">
+                                            <div class="col-12">
+                                                <label class="form-label">كلمة المرور الحالية</label>
+                                                <div class="password-field">
+                                                    <input type="password" class="form-control" id="currentPassword">
+                                                    <button type="button" class="password-toggle">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">كلمة المرور الجديدة</label>
+                                                <div class="password-field">
+                                                    <input type="password" class="form-control" id="newPassword">
+                                                    <button type="button" class="password-toggle">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">تأكيد كلمة المرور</label>
+                                                <div class="password-field">
+                                                    <input type="password" class="form-control" id="confirmPassword">
+                                                    <button type="button" class="password-toggle">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="twoFactorAuth">
+                                                    <label class="form-check-label" for="twoFactorAuth">
+                                                        تفعيل المصادقة الثنائية
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fas fa-save me-2"></i>
+                                                    حفظ التغييرات
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preferences Settings -->
+                        <div class="tab-pane fade" id="preferences">
+                            <div class="settings-card">
+                                <div class="card-header bg-transparent border-0">
+                                    <h4 class="mb-0">التفضيلات</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form id="preferencesForm" class="settings-form">
+                                        <div id="preferencesSection">
+                                            <div class="preference-item">
+                                                <h5 class="mb-3">المظهر</h5>
+                                                <div class="mb-3">
+                                                    <label class="form-label">الوضع</label>
+                                                    <select class="form-select" id="themeMode">
+                                                        <option value="light">فاتح</option>
+                                                        <option value="dark">داكن</option>
+                                                        <option value="auto">تلقائي</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">حجم الخط</label>
+                                                    <select class="form-select" id="fontSize">
+                                                        <option value="small">صغير</option>
+                                                        <option value="medium">متوسط</option>
+                                                        <option value="large">كبير</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="preference-item">
+                                                <h5 class="mb-3">اللغة والمنطقة</h5>
+                                                <div class="mb-3">
+                                                    <label class="form-label">اللغة</label>
+                                                    <select class="form-select" id="language">
+                                                        <option value="ar">العربية</option>
+                                                        <option value="en">English</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">المنطقة الزمنية</label>
+                                                    <select class="form-select" id="timezone">
+                                                        <option value="cairo">توقيت القاهرة (GMT+2)</option>
+                                                        <option value="riyadh">توقيت الرياض (GMT+3)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="preference-item">
+                                                <h5 class="mb-3">الخصوصية</h5>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="showOnline">
+                                                    <label class="form-check-label" for="showOnline">
+                                                        إظهار حالة الاتصال
+                                                    </label>
+                                                </div>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="showLastSeen">
+                                                    <label class="form-check-label" for="showLastSeen">
+                                                        إظهار آخر ظهور
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-4">
+                                            <i class="fas fa-save me-2"></i>
+                                            حفظ التفضيلات
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userTypeSwitch = document.getElementById('userTypeSwitch');
+            const patientSettings = document.getElementById('patientSettings');
+            const doctorSettings = document.getElementById('doctorSettings');
+
+            userTypeSwitch.addEventListener('change', function() {
+                const isDoctor = this.value === 'doctor';
+                patientSettings.style.display = isDoctor ? 'none' : 'block';
+                doctorSettings.style.display = isDoctor ? 'block' : 'none';
+
+                const firstTab = isDoctor ? 
+                    doctorSettings.querySelector('.nav-link') :
+                    patientSettings.querySelector('.nav-link');
+                firstTab.click();
+            });
+        });
+    </script>
+</body>
+</html>

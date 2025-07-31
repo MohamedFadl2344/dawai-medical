@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات | لوحة التحكم</title>
+    <!-- Bootstrap RTL CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"> -->
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <button class="sidebar-close d-lg-none">
+                <i class="fas fa-times" style="color: #ffffff;"></i>
+            </button>
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="الشعار" class="logo">
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>الرئيسية</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="appointments.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>المواعيد</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doctors.html" class="nav-link">
+                        <i class="fas fa-user-md"></i>
+                        <span>الأطباء</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="patients.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>المرضى</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="specialties.html" class="nav-link">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>التخصصات</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link active">
+                        <i class="fas fa-cog"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <nav class="top-navbar">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center">
+                        <button id="sidebarToggle" class="d-lg-none">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown notification-dropdown me-3">
+                            <button class="btn dropdown-toggle position-relative" type="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-bell"></i>
+                                <span class="notification-badge">3</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <h6 class="dropdown-header">الإشعارات</h6>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-calendar-check text-success"></i>
+                                    <div>
+                                        <p>موعد جديد مع د. أحمد</p>
+                                        <small class="text-muted">منذ 5 دقائق</small>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-center" href="#">عرض كل الإشعارات</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn user-dropdown" type="button" data-bs-toggle="dropdown">
+                                <img src="assets/images/avatar.png" alt="User" class="rounded-circle">
+                                <span class="d-none d-md-inline">أحمد محمد</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="profile.html">
+                                    <i class="fas fa-user"></i>
+                                    <span>الملف الشخصي</span>
+                                </a>
+                                <a class="dropdown-item" href="settings.html">
+                                    <i class="fas fa-cog"></i>
+                                    <span>الإعدادات</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="../index.html">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>تسجيل الخروج</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Settings Content -->
+            <div class="container-fluid" id="settings-content">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="h3 mb-4">الإعدادات</h1>
+
+                        <!-- Settings Tabs -->
+                        <div class="card">
+                            <div class="card-body">
+                                <ul class="nav nav-tabs" id="settingsTabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general" type="button">
+                                            <i class="fas fa-cog me-2"></i>عام
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="notifications-tab" data-bs-toggle="tab" data-bs-target="#notifications" type="button">
+                                            <i class="fas fa-bell me-2"></i>الإشعارات
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button">
+                                            <i class="fas fa-shield-alt me-2"></i>الأمان
+                                        </button>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content mt-4" id="settingsTabContent">
+                                    <!-- General Settings -->
+                                    <div class="tab-pane fade show active" id="general" role="tabpanel">
+                                        <form id="generalSettingsForm">
+                                            <div class="row mb-4">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">اسم العيادة</label>
+                                                        <input type="text" class="form-control" value="عيادة دواي">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">البريد الإلكتروني</label>
+                                                        <input type="email" class="form-control" value="info@example.com">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">رقم الهاتف</label>
+                                                        <input type="tel" class="form-control" value="0123456789">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">العنوان</label>
+                                                        <textarea class="form-control" rows="3">القاهرة، مصر</textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">المنطقة الزمنية</label>
+                                                        <select class="form-select">
+                                                            <option selected>توقيت القاهرة (GMT+2)</option>
+                                                            <option>توقيت مكة المكرمة (GMT+3)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+                                        </form>
+                                    </div>
+
+                                    <!-- Notifications Settings -->
+                                    <div class="tab-pane fade" id="notifications" role="tabpanel">
+                                        <form id="notificationSettingsForm">
+                                            <div class="mb-4">
+                                                <h5 class="mb-3">إعدادات الإشعارات</h5>
+                                                <div class="form-check form-switch mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                                    <label class="form-check-label" for="emailNotifications">
+                                                        إشعارات البريد الإلكتروني
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-switch mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="smsNotifications" checked>
+                                                    <label class="form-check-label" for="smsNotifications">
+                                                        إشعارات الرسائل النصية
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-switch mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="browserNotifications">
+                                                    <label class="form-check-label" for="browserNotifications">
+                                                        إشعارات المتصفح
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+                                        </form>
+                                    </div>
+
+                                    <!-- Security Settings -->
+                                    <div class="tab-pane fade" id="security" role="tabpanel">
+                                        <form id="securitySettingsForm">
+                                            <div class="mb-4">
+                                                <h5 class="mb-3">تغيير كلمة المرور</h5>
+                                                <div class="mb-3">
+                                                    <label class="form-label">كلمة المرور الحالية</label>
+                                                    <input type="password" class="form-control">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">كلمة المرور الجديدة</label>
+                                                    <input type="password" class="form-control">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">تأكيد كلمة المرور الجديدة</label>
+                                                    <input type="password" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="mb-4">
+                                                <h5 class="mb-3">المصادقة الثنائية</h5>
+                                                <div class="form-check form-switch mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="twoFactorAuth">
+                                                    <label class="form-check-label" for="twoFactorAuth">
+                                                        تفعيل المصادقة الثنائية
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>
